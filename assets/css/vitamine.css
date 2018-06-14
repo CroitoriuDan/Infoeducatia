@@ -1,0 +1,6 @@
+.clickableSection:hover{
+    
+    color: #e44c65;
+    transition: .5s ease;
+    cursor: pointer;
+}
