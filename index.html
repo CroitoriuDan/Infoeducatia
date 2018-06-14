@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        <title>Biochimie</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+    </head>
+    <div class="botHeader" id="closeHeader">
+
+        <div onclick = "close1();" style = "width: 30px; float: right;">   <img src = "images/close.png" style="width: 100%;" id = "close"></div>
+        <div onclick = "maximize();" style = "width: 30px; float: right;"><img src = "images/maximize.png" style="width: 100%;" id = "maximize"></div>
+        <div onclick = "minimize();" style = "width: 30px; float:right;"> <img src = "images/minimize.png" style="width: 100%;" id = "minimize"></div>
+        <div onclick = "fullscreen();" style = "width: 30px; float:right;"> <img src = "images/fullscreen.png" style="width: 100%;" id = "fullscreen"></div>
+    </div>
+    <div class="bot" id="xdd" class="popup-header" rel="stylesheet">
+
+        <div id = "botBody">
+            <div>Utilizator: <span id="user"></span></div>
+            <div>Carla: <span id="chatbot"></span></div>
+            <div><input id="input" type="text" color="#e44c65" placeholder="Ask Carla something..." autocomplete="off" /></div>
+        </div>
+        <!--<input id="popup-WrapperClose" type="button" onclick="windowClose();"></input>
+<!--<input id="popup-WrapperMini" type="button" onclick="windowMin();"></input>
+<input id="popup-WrapperMax" type="button" onclick="Windowopen();"></input>-->
+        <script>
+            var e = document.getElementById("xdd");
+            e.style.height = "300px";
+        </script>
+        <script>
+            var full = 0;
+            function fullscreen(){
+                var y = document.getElementById("fullscreen");
+                var x = document.getElementById("closeHeader");
+                var e = document.getElementById("xdd");
+
+                if(full == 0){
+                    y.setAttribute("src", "images/notfullscreen.png");
+                    e.style.width = "1000px";
+                    e.style.height = "600px";
+                    x.style.marginBottom = "585px";
+                    full = 1;
+                }
+
+                else{
+                    y.setAttribute("src", "images/fullscreen.png");
+                    e.style.width = "580px";
+                    e.style.height = "300px";
+                    x.style.marginBottom = "285px";
+                    full = 0;
+                }
+            }
+
+            function minimize(){
+                var x = document.getElementById("closeHeader");
+                var e = document.getElementById("xdd");
+                var y = document.getElementById("fullscreen");
+                y.style.display = "none";
+                e.style.display = "none";
+                x.style.marginBottom = "10px";
+                x.style.background = "#e44c65";
+                x.style.width = "300px";
+            }
+
+            function maximize(){
+                var x = document.getElementById("closeHeader");
+                var e = document.getElementById("xdd");
+                var y = document.getElementById("fullscreen");
+
+                e.style.display = "block";
+                if(e.style.height == "300px")
+                    x.style.marginBottom = "285px";
+                else x.style.marginBottom = "585px";
+                x.style.background = "#1C1D25";
+                x.style.width = "200px";
+                y.style.display = "block";
+            }
+
+            function close1(){
+                var e = document.getElementById("xdd");
+                var x = document.getElementById("closeHeader");
+                e.style.display = "none";
+                x.style.display = "none";
+            }
+        </script>
+    </div>
+    <!--<button class="btn-minimize"></button>
+<script type="text/javascript">$(".btn-minimize").click(function(){
+$(this).toggleClass('btn-plus');
+$("#xdd").slideToggle();
+});</script>
+-->
+    <script type="text/javascript">
+        var trigger = [
+            "salut", "ce faci", "ce este biochimia", "cum te numesti","care sunt moleculele vietii","salut","hei","vitamine","ce sunt vitaminele","ce este vitamina a","vitamina a", "ajutor", "ce este vitamina b", "ce este vitamina c", "ce este vitamina d", "ce este vitamina k", "ce este vitamina e","ce se intelege prin metabolism","ce stii despre metabolismul glucidic","ce stii despre metabolismul lipidic","ce stii despre metabolismul protidic","ce stii despre metabolismul energetic","ce stii despre metabolismul mineral","ce stii despre reglarea metabolismului","ce este un aminoacid","ce stii despre acizii nucleici","care sunt cele doua tipuri principale de acizi nucleici","ce este adnul","ce este arnul","ce stii despre proteine","ce stii despre glucide","ce stii despre monoglucide","ce stii despre lipide","ce stii despre enzime","de ce este importanta biochimia", "ajutor", "de ce a fost creat acest site",    
+        ];
+        var reply = [
+            ["Salut"],
+            ["Invat despre biochimie, tu?"],
+            ["Biochimia este stiinta care studiaza compozitia chimica a organismelor vii, structura si proprietatile substantelor componente, precum si transformarile la care sunt supuse aceste substante in interiorul organismelor vii."],
+            ["Carla"],
+            ["Moleculele vietii sunt proteinele și aminoacizii, glucidele, lipidele, acizii nucleici"],
+            ["Salut"],
+            ["Hei"],
+            ["Compus organic necesar în cantități mici în regimul de menținere a funcțiilor metabolice normale. Nu oferă energie organismului și nici nu sunt încorporate în țesuturi. Vitaminele solubile (B și C) sunt eliminate rapid, iar cele grase (A, D, E, K) au nevoie de săruri secretate de bilă pentru a fi absorbite de organism. Am și informatii despre vitaminele: A, B, C, D, E, K."],
+            ["Compus organic necesar în cantități mici în regimul de menținere a funcțiilor metabolice normale. Nu oferă energie organismului și nici nu sunt încorporate în țesuturi. Vitaminele solubile (B și C) sunt eliminate rapid, iar cele grase (A, D, E, K) au nevoie de săruri secretate de bilă pentru a fi absorbite de organism. Am și informatii despre vitaminele: A, B, C, D, E, K."],
+            ["Alcool liposolubil (solubil în grăsimi sau uleiuri), prezent în pești și, în special, în uleiurile din ficat de pește, dar și în legume ca morcovul. Se mai numește antixeroftalmică sau vitamina creșterii. Rolul vitaminei A este acela de a influența creșterea organismelor tinere și de a menține acuritatea ochilor."],
+            ["Alcool liposolubil (solubil în grăsimi sau uleiuri), prezent în pești și, în special, în uleiurile din ficat de pește, dar și în legume ca morcovul. Se mai numește antixeroftalmică sau vitamina creșterii. Rolul vitaminei A este acela de a influența creșterea organismelor tinere și de a menține acuritatea ochilor."],
+            ["Ma poti întreba: "],
+            ["Compuși organici hidrosolubili având proprietăți similare se găsesc în surse naturale și au funcții fiziologice. Se găsește în lapte, carne, ouă, ficat, drojdia de bere și pește."],
+            ["Compus organic hidrosolubil asemănător zaharurilor carbon 6, important în metabolismul animal. Organismul majorității animalelor produce vitamina C, dar oamenii au nevoie de această vitamină pentru a preveni scorbutul. Ușor de distrus prin expunerea la căldură sau în contact cu oxigenul. Cele mai importante surse sunt citricile și legumele de culoare verde-închis."],
+            ["Sunt substante care deriva de la steroli, se gasesc in natura in stare libera sau sub forma de provitamine. (in regnul vegetal: D2 - D7). Pentru ca un sterol sa poata forma vitamina D trebuie sa aiba o grupare OH neesterificata in pozitia 3 si sa aiba la nucleul B doua duble legaturi conjugate. Transformarea sterolilor in vitamina D se produce in piele si tesutul subcutanat sub actiunea radiatiilor UV."],
+            ["Grup de compuși liposolubili esențiali pentru coagularea sângelui. Lipsa vitaminei K în organism duce la creșterea timpului de coagulare. Vitamina K1 este sintetizată de plante, iar K2 este de origine microbiană, fiind prezentă în țesuturile mamiferelor. Un precursor sintetic al vitaminei K se numește menadionă și se administrează ca supliment alimentar."],
+            ["Grup de compuși organici liposolubili. Se găsește în anumite uleiuri de plante și în frunzele legumelor verzi. Este folosit împotriva râncezelii grăsimilor, în special a uleiurilor vegetale."],
+			["Prin metabolism se înţelege totalitatea transformărilor biochimice şi energetice care au loc în ţesuturile organismului viu."],
+			["Glucidele îndeplinesc în organism trei roluri esenţiale: energogenetic (predominant) ,structural (în structura substanţelor complexe) şi funcţional (exemplu: ribozele acizilor nucleici)"],
+			["structural, intrînd în structura biomembranelor, unde asigură permeabilitatea selectivă; energetic, prin eliberarea unei mari cantităţi de energie; funcţional ,prin hormonii steroizi de natură lipidică; metabolic, prin procesele permanente de lipogeneză şi lipoliză."],
+			["Din cei 20 de aminoacizi care intră în structura substanţelor proteice, o parte pot fi sintetizaţi de organismul uman. Aceştia se numesc aminoacizi neesenţiali. Ceilalţi nu pot fi sintetizaţi în organism, deci provin numai din alimente. Aceştia poartă numele de aminoacizi esenţiali."],
+			["Totalitatea schimburilor de energie dintre materia vie şi mediu constitue metabolismul energetic. Metabolismul energetic este o latură a procesului metabolic."],
+			["Cantitativ (60 %) apa reprezintă o componentă esenţială a organismului, în cadrul căruia îndeplineşte următoarele funcţii principale :formează mediul intern, este solvent pentru substanţele organice şi anorganice şi intervine în termoreglare. Din necesarul zilnic de 40 g apă/ kg corp, 35 g sunt reprezentate de apa exogenă şi 5 g de apa endogenă. Apa exogenă pătrunde sub formă de alimente lichide şi solide, apa endogenă este apa rezultată din lanţul respirator mitocondrial."],
+			["Mecanismele de reglare a metabolismului pot fi împărţite, după nivelul la care acţionează, în: mecanisme celulare, umorale şi nervoase. Reglarea celulară realizează integrarea reacţiilor metabolice într-un tot unitar .Reglarea nervoasă şi umorală integrează procesele metabolice celulare în funcţie de necesităţile întregului organism şi le adaptează la condiţiile de mediu."],
+			["Compus organic în care un atom de carbon este legat de o grupare amino (-NH2), o grupare carboxil (-COOH), un atom de hidrogen (-H) și o grupare organică (numită R). Din aceste combinații rezultă acizi carboxilici și amine. Proprietățile fizice și chimice rezultă din proprietățile radicalului R, în special tendința de a interacționa cu apa și încărcătura electrică a acestuia. Din cei 100 de aminoacizi, doar 20 intră în structura proteinelor prezente în toate organismele vii. Organismul uman poate sintetiza prin conversie internă doar 10 dintre aceștia, transformând un aminoacid în altul, sau prin transformarea moleculelor produse în faza intermediară a metabolismului. (aminoacizi esențiali: arginina, histidina, izoleucina, leucina, listina, metionina, fenilalanina, treonina, tritofan și valina)."],
+			["Oricare dintre compușii chimici care alcătuiesc materialul genetic al celulelor vii."],
+			["Cele 2 tipuri principale de acizi nucleici sunt ARN(adenină, guanină, citozină și uracil) și ADN(adenină, guanină, citozină și timină)"],
+			["Unul din cele 2 tipuri de acid nucleic, compus organic complex care se găsește în toate celulele vii, precum și în multe virusuri. Reprezintă substanța biochimică din care sunt alcătuite genele. Structura sa, două spirale răsucite una în jurul celeilalte într-o structură elicoidală dublă, semănând cu o scară răsucită, a fost descrisă prima dată de către Francis Crick și James D. Watson (1953). Fiecare spirală reprezintă un lanț lung (polimer) de nucleotide care se repetă: adenina (A), guanina (G), citozina (C) și timina (T). Cele două spirale conțin informații complementare: A formează legături de hidrogen doar cu T; C doar cu G. Când ADN-ul este copiat în celulă, lanțurile se separă și fiecare servește drept tipar pentru constituirea unui nou lanț complementar, acesta reprezentând mecanismul – cheie al eredității. ADN-ul din celule este organizat în complexe dense de proteină-ADN, numite cromozomi. La eucariote, acestea se găsesc în nucleu, dar ADN-ul se găsește și în mitocondrii și în cloroplaste. Procariotele au un singur cromozom circular, aflat în citoplasmă. Unele procariote și doar puține eucariote au ADN-ul situat în afara cromozomilor, și anume în plasmide."],
+			["ARN-ul zis si acidul ribonucleic este unul dintre cele două tipuri principale de acid nucleic, cu funcție principală în sinteza proteinelor din toate celulele vii și cu funcție de purtător al informației genetice la virusurile lipsite de ADN. Ca și ADN-ul, este alcătuit dintr-un lanț de nucleotide legate între ele, dar, exceptând anumite virusuri, acest lanț este unic și conține uracil (U), în timp ce ADN-ul conține timină. ARN-ul mesager (ARNm), copiat după una dintre cele două catene de ADN care acționează ca model, poartă mesajul codului genetic de la ADN (din cromozomi) la locul sintezei proteice (pe ribozomi). ARN-ul ribozomial (ARNr), ca element constituent al blocurilor de ribozomi, participă la sinteza proteică. ARN-ul de transfer (ARNt), cel mai mic tip de ARN, are mai puțin de o sută de nucleotide (ARNm și ARNr conținând mii). Fiecare triplet nucleotidic de pe ARNm precizează care aminoacid urmează să fie încorporat în proteina sintetizată. Molecula de ARNt prezintă pe lanțul său un triplet ale cărui trei baze consecutive, complementare cu cele de pe ARNm, îi permit să aducă aminoacidul respectiv la locul de sinteză al proteinei, pentru a fi inclus în structura acesteia. Există și alte tipuri minore de ARN; cel puțin unele dintre acestea au funcție de catalizatori (ribozimele), funcție care, mult timp, a fost atribuită doar proteinelor."],
+			["Compus organic, polimer complex al aminoacizilor, implicat în majoritatea aspectelor legate de fiziologia și biochimia organismelor vii. Pot conține 20 de aminoacizi, în lanțuri de la sute până la mii de unități. O proteină are 3 mari niveluri de structură: primar ( un șir de aminoacizi), determinat de gene; secundar (formă geometrică, deseori spiralată), determinat de unghiurile legăturilor covalente dintre ele (legături dintre peptide) și aminoacizi; terțiar (formă buclată și pliată), determinat de legăturile de hidrogen dintre lanțurile laterale de aminoacizi. Proteinele sunt un nutrient esențial pentru om, obținut atât pentru din alimente vegetale, cât și din cele animale. Sunt folosite mai ales în produsele alimentare, sunt utilizate, de asemenea, în adezivi, plastice și fibre."],
+			["Clasă de compuși naturali organici foarte vastă și răspândită, care include zaharuri, amidon și celuloză. Aceștia sunt, în general, clasificați drept monozaharide (zaharuri simple, de exemplu glucoză, fructoză), dizaharide (zaharuri cu două unități, de exemplu sucroză, lactoză), oligozaharide (3-10 zaharide) și polizaharide (molecule mari cu până la 10000 de unități, incluzând celuloză, amidon și glicogen). Plantele verzi produc glucide prin fotosinteză, iar la majoritatea animalelor glucidele sunt un rezervor de energie ușor accesibil și oxidarea glucozei în țesuturi produce energia necesară metabolismului. Carența de carbohidrați poate duce la hipoglicemie sau chiar atrofie musculară pe când excesul de carbohidrați duce inițial la o stare de energie apoi corpul declanșează stocarea și nivelul energetic scade rapid (starea de somnolență după consumul de dulciuri). Mulți compensează asta cu energizante, în principal cofeina, care forțează corpul să producă energie. Excesul cronic duce la boli degenerative, diabet, boli cardiovasculare, autoimune, inflamatorii. Carbohidrații ar trebui să reprezinte 47-50% din aportul total de calorii într-o zi, aceasta fiind cantitatea zilnică necesară organelor a căror funcționare depinde exclusiv de glucoză, cum este situația creierului."],
+			["Monoglucidele (monozaharidele sau ozele) sunt combinaţii naturale polihidroxicarbonilice, mai exact polihidroxialdehide sau polixidroxicetone cu lanţ C-C neîntrerupt."],
+			["Caracteristica definitorie unei substanțe lipidice este insolubilitatea în apă, colesterolul și steroizii înrudiți, carotenoidele, prostaglandinele și diferiți alți compuși pot fi, de asemenea, clasificați drept lipide. Acestea se găsesc în produsele lactate, carne, mezeluri, pește și grăsimile de origine vegetală se găsesc în ulei, margarină și lecitină (legitina din soia). În exces, grăsimile alimentare, provoacă obezitate, hipotiroidie, hipercolesterolemie, hipertrigliceridemie. Carența de lipide duce, însă, la dificultatea de absorbție a vitaminelor, depresie (omega 3 și omega 6, risc de schizofrenie), risc crescut de cancer (cancer colon din cauza lipsă omega 3), nivel crescut de colesterol și boli de inimă."],
+			["Enzimele catalizează toate reacțiile metabolismului celular; printre acestea se numără asimilarea hranei – în care molecule nutritive sunt descompuse în molecule mai mici - , conservarea și transformarea energiei chimice, respectiv geneza celulară. Aproape toate enzimele sunt proteine. O enzimă își încetează activitatea când configurația este distrusă. Enzimele se clasifică în funcție de reacțiile pe care le catalizează: (1) oxidoreducere; (2) transfer al unui grup chimic; (3) hidroliză; (4) îndepărtare sau adăugare a unui grup chimic; (5) izomerizare și (6) unire a unităților de substrat (polimerizare). Fermentarea vinului, dospirea aluatului, covăsirea laptelui și fermentația berii sunt exemple de reacții enzimatice. Enzimele se folosesc în medicină pentru suprimarea unor agenți patogeni letali, accelerarea vindecării unor răni și diagnosticarea unor boli."],
+			["În primul rând, oferă cunoștințele necesare înțelegerii stării de sănătate și a mecanismelor patogenice în orice boală.În al doilea rând, permite tratarea cu succes a avitaminozelor, a insuficienței sau hiperfuncțiilor endocrine.Nu în ultimul rând,explică modul de acțiune al medicamentelor, ca modulatori ai activității enzimatice, oferind datele necesare pentru sinteza de substanțe cu acțiune farmacologică dorită.În altă ordine de idei, oferă cunoștințele necesare înțelegerii stării de sănătate și a mecanismelor patogenice în orice boală.Pe de o parte, permite tratarea cu succes a avitaminozelor, a insuficienței sau hiperfuncțiilor endocrine.Pe de altă parte, explică modul de acțiune al medicamentelor, ca modulatori ai activității enzimatice, oferind datele necesare pentru sinteza de substanțe cu acțiune farmacologică dorită."],
+			["Mă poți întreba: salut, ce faci, ce este biochimia, cum te numesti, care sunt moleculele vietii, salut, hei, vitamine, ce sunt vitaminele, ce este vitamina a, vitamina a, ajutor, ce este vitamina b, ce este vitamina c, ce este vitamina d, ce este vitamina k, ce este vitamina e, ce se intelege prin metabolism, ce stii despre metabolismul glucidic, ce stii despre metabolismul lipidic, ce stii despre metabolismul protidic, ce stii despre metabolismul energetic, ce stii despre metabolismul mineral, ce stii despre reglarea metabolismului, ce este un aminoacid, ce stii despre acizii nucleici, care sunt cele doua tipuri principale de acizi nucleici, ce este ADN-ul, ce stii despre proteine, ce stii despre glucide, ce stii despre monoglucide,ce stii despre lipide, ce stii despre enzime,de ce este importanta biochimi, de ce a fost creat acest site"],
+			["Acest site a fost creat pentru a ajuta elevii pasionați de chimie și în special elevii clasei a 10a A de la Liceult Teoretic de Informatică Grigore Moisil Iași"]
+        ];
+        var alternative = ["Nu stiu exact... dar mă voi informa despre acest subiect în cel mai scurt timp."];
+        document.querySelector("#input").addEventListener("keypress", function(e){
+            var key = e.which || e.keyCode;
+            if(key === 13){ //Enter button
+                var input = document.getElementById("input").value;
+                document.getElementById("user").innerHTML = input;
+                output(input);
+            }
+        });
+        function output(input){
+            try{
+                var product = input + "=" + eval(input);
+            } catch(e){
+                var text = (input.toLowerCase()).replace(/[^\w\s\d]/gi, ""); //remove all chars except words, space and 
+                text = text.replace(/ a /g, " ").replace(/i feel /g, "").replace(/whats/g, "what is").replace(/please /g, "").replace(/ please/g, "");
+
+                if(compare(trigger, reply, text)){
+                    var product = compare(trigger, reply, text);
+                } else {
+                    var product = alternative[Math.floor(Math.random()*(alternative.length - 1))];
+                }
+            }
+            document.getElementById("chatbot").innerHTML = product;
+            //speak(product);
+            document.getElementById("input").value = ""; //clear input value
+        }
+
+        function compare(arr, array, string){
+            var item;
+
+            for(var i = 0; i < arr.length; i++){
+                if(arr[i] == string){
+                    var tmp =  Math.floor(Math.random()*(array[i].length - 1));
+                    item = array[i][tmp];
+                }
+            }
+
+            return item;
+        }
+        function speak(string){
+            var utterance = new SpeechSynthesisUtterance();
+            utterance.voice = speechSynthesis.getVoices().filter(function(voice){return voice.name == "Agnes";})[0];
+            utterance.text = string;
+            utterance.lang = "en-US";
+            utterance.volume = 1; //0-1 interval
+            utterance.rate = 1;
+            utterance.pitch = 2; //0-2 interval
+            speechSynthesis.speak(utterance);
+        }
+    </script>
+
+    <body class="landing">
+        <div id="page-wrapper">
+
+            <!-- Header -->
+            <script src = "header&footer/header.js"></script>
+
+            <!-- Banner -->
+            <section id="banner">
+                <div class="content">
+                    <header>
+                        <h2>InfoChim</h2>
+                        <p><strong>Biochimia este stiinta care studiaza</strong><br />
+                            compozitia chimica a organismelor vii,<br /> structura si proprietatile substantelor componente,<br /> precum si transformarile la care sunt supuse aceste substante<br /> in interiorul organismelor vii.</p>
+                    </header>
+                    <span class="image"><img src="images/augu.png" alt="" /></span>
+                </div>
+                <a href="#one" class="goto-next scrolly">Next</a>
+            </section>
+
+            <!-- One -->
+            <section id="one" class="spotlight style1 bottom">
+                <span class="image fit main"><img src="images/imgg.jpg" alt="" /></span>
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div class="4u 12u$(medium)">
+                                <header>
+                                    <h2>Biochimia Structurala</h2>
+                                    <p>se ocupă cu studiul moleculelor vieții</p>
+                                </header>
+                            </div>
+                            <div class="4u 12u$(medium)">
+                                <p>
+                                    proteine și aminoacizi, glucide, lipide, acizi nucleici</p>
+                            </div>
+                            <div class="4u$ 12u$(medium)">
+                                <p>De asemenea, această ramură studiază și vitaminele și enzimele.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#two" class="goto-next scrolly">Next</a>
+            </section>
+
+            <!-- Two -->
+            <section id="two" class="spotlight style2 right">
+                <span class="image fit main"><img src="images/imgg1.jpg" alt="" /></span>
+                <div class="content">
+                    <header>
+                        <h2>Biochimia metabolismelor</h2>
+                        <p>studiază căile metabolice prin care nutrienții sunt procesați în interiorul celulelor vii (anabolism și catabolism).</p>
+                    </header>
+                    <p></p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </div>
+                <a href="#three" class="goto-next scrolly">Next</a>
+            </section>
+
+            <!-- Three -->
+            <section id="three" class="spotlight style3 left">
+                <span class="image fit main bottom"><img src="images/imgg2.jpg" alt="" /></span>
+                <div class="content">
+                    <header>
+                        <h2>Importanța biochimiei</h2>
+                        <p>•	oferă cunoștințele necesare înțelegerii stării de sănătate și a mecanismelor patogenice în orice boală;</p>
+                        <p>•	permite tratarea cu succes a avitaminozelor, a insuficienței sau hiperfuncțiilor endocrine;</p>
+                        <p>•	explică modul de acțiune al medicamentelor, ca modulatori ai activității enzimatice, oferind datele necesare pentru sinteza de substanțe cu acțiune farmacologică dorită.</p>
+                    </header>
+                    <p></p>
+                    <ul class="actions">
+                        <li><a href="#" class="button">Learn More</a></li>
+                    </ul>
+                </div>
+                <a href="#four" class="goto-next scrolly">Next</a>
+            </section>
+
+            <!-- Four -->
+            <section id="four" class="wrapper style1 special fade-up">
+                <div class="container">
+                    <header class="major">
+                        <h2>Conținutul procentual al principalelor
+                            biomolecule din organismele vegetale, animale și organismul uman</h2>
+                        <p></p>
+                    </header>
+                    <img src="images/capture.jpg">
+                    <!--<div class="box alt">
+<div class="row uniform">
+<section class="4u 6u(medium) 12u$(xsmall)">
+<span class="icon alt major fa-area-chart"></span>
+<h3>Vrajeala</h3>
+<p>Tot vrajeala</p>
+</section>
+<section class="4u 6u$(medium) 12u$(xsmall)">
+<span class="icon alt major fa-comment"></span>
+<h3>Alta vrajeala</h3>
+<p>Si mai multa vrajeala</p>
+</section>
+<section class="4u$ 6u(medium) 12u$(xsmall)">
+<span class="icon alt major fa-flask"></span>
+<h3>XDD SIIIII guesss what ?!</h3>
+<p>VRAJEALAAAA XDD</p>
+</section>
+<section class="4u 6u$(medium) 12u$(xsmall)">
+<span class="icon alt major fa-paper-plane"></span>
+<h3>Stiti deja spilu XD</h3>
+<p>AHAAAA XDDD VRAJEALAAA LA TOATA LUMIAAA XDDDD AHAAAAA </p>
+</section>
+<section class="4u 6u(medium) 12u$(xsmall)">
+<span class="icon alt major fa-file"></span>
+<h3>WE, VRajeala am zis </h3>
+<p>VRAJEALAAAAAAA</p>
+</section>
+<section class="4u$ 6u$(medium) 12u$(xsmall)">
+<span class="icon alt major fa-lock"></span>
+<h3>chestii de infrastructura de cal xd </h3>
+<p>AHAAAA daaaa bumti bumti DAAA Ahaaa xd </p>
+</section>
+</div>
+</div>
+<footer class="major">
+<ul class="actions">
+<li><a href="#" class="button">Learn more</a></li>
+</ul>
+</footer>-->
+                </div>
+            </section>
+
+            <!-- Five -->
+            <section id="five" class="wrapper style2 special fade">
+                <div class="container">
+                    <header>
+                        <h2>Vitamine</h2>
+                        <p>Compus organic necesar în cantități mici în regimul de menținere a funcțiilor metabolice normale. Nu oferă energie organismului și nici nu sunt încorporate în țesuturi. Vitaminele solubile (B și C) sunt eliminate rapid, iar cele grase (A, D, E, K) au nevoie de săruri secretate de bilă pentru a fi absorbite de organism.</p>
+                    </header>
+                    <!--<form method="post" action="#" class="container 50%">-->
+                    <ul class="action">
+                        <li><a href="left-sidebar.html" class="button">Află mai multe</a></li>
+                        <!--<div class="8u 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Your Email Address" /></div>-->
+                        <!--<div class="4u$ 12u$(xsmall)"> <input type="submit" value="Get started" class="fit special" /></div>-->
+                    </ul>
+                    <!--</form>-->
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer id="footer">
+                <ul class="copyright">
+                    <li>&copy;BiochimTeam</li><li>Design: Elevi la <a href="http://liis.ro">Liis</a></li>
+                </ul>
+            </footer>
+
+        </div>
+
+        <!-- Scripts -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="assets/js/jquery.scrolly.min.js"></script>
+        <script src="assets/js/jquery.dropotron.min.js"></script>
+        <script src="assets/js/jquery.scrollex.min.js"></script>
+        <script src="assets/js/skel.min.js"></script>
+        <script src="assets/js/util.js"></script>
+        <!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+        <script src="assets/js/main.js"></script>
+
+    </body>
+</html>
